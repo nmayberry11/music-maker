@@ -1,0 +1,62 @@
+<form [formGroup]="addSongForm" (ngSubmit)="onAddSong()">
+  <div>
+    <label for="title">Title</label>
+    <input
+      class="form-control"
+      type="text"
+      id="title"
+      name="title"
+      formControlName="title"
+    />
+
+    <span
+      *ngIf="
+        !addSongForm.get('title').valid && addSongForm.get('title').touched
+      "
+      class="help-block text-danger"
+      >Please enter a valid Title</span
+    >
+  </div>
+
+  <div>
+    <label for="artist">Artist</label>
+    <input
+      class="form-control"
+      type="text"
+      id="artist"
+      name="artist"
+      formControlName="artist"
+    />
+
+    <span
+      *ngIf="
+        !addSongForm.get('artist').valid && addSongForm.get('artist').touched
+      "
+      class="help-block text-danger"
+      >Please enter a valid Artist</span
+    >
+  </div>
+
+  <div>
+    <label for="genre">Genre</label>
+    <input
+      class="form-control"
+      type="text"
+      id="genre"
+      name="genre"
+      formControlName="genre"
+    />
+
+    <span
+      *ngIf="
+        !addSongForm.get('genre').valid && addSongForm.get('genre').touched
+      "
+      class="help-block text-danger"
+      >Please enter a valid Genre</span
+    >
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!addSongForm.valid">
+    Add {{ addSongForm.get("title").value ?? "Song" }}
+  </button>
+</form>

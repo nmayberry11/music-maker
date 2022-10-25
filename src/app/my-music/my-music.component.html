@@ -1,0 +1,8 @@
+<button class="btn btn-primary" (click)="onToggleSortBy()">
+  Sort By {{ sortBy === "title" ? "artist" : "title" }}
+</button>
+
+<div *ngFor="let singleTrack of myMusic | sortArray: sortBy">
+  <app-song [abc]="singleTrack"></app-song>
+  <button (click)="onRemoveTrack(singleTrack.id)">&minus;</button>
+</div>
